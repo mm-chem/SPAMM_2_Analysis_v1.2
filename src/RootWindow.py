@@ -72,7 +72,8 @@ class RootWindow(tk.Tk):
                 print("Updating FT plot")
                 ft = np.abs(fft(y[5000:105000] - np.mean(y[5000:105000]), norm="forward"))
                 ft = ft[0:(int(len(ft)/2))+1] * 682500
-                ft_late = np.abs(fft(y[805000:905000] - np.mean(y[805000:905000]), norm="forward"))
+                # Configure this with "late" tracing for 1s data
+                ft_late = np.abs(fft(y[900000:1000000] - np.mean(y[900000:1000000]), norm="forward"))
                 ft_late = ft_late[0:(int(len(ft_late) / 2)) + 1] * 682500
                 df = 10
                 f = np.arange(0, len(ft)*df, df)
